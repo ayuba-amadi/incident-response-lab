@@ -1,6 +1,6 @@
 # ICDFA GRC105 — Incident Response Planning & Ransomware Response Simulation
 
-**Project status:** Repository scaffold only; assignment tasks are not completed.
+**Project status:** Task 1 is completed and committed at `506b89b`. Tasks 2–6 are drafted and validation-checked, awaiting final independent acceptance and the final Git checkpoint. The final Word document has not been assembled.
 
 ## Purpose and submission boundary
 A single, auditable workspace for the **GRC105 Week 20 individual assessment**. It supports evidence-grounded incident assessment, policy and CSIRT design, a ransomware response playbook, communications, a simulated tabletop, and a critical case study. All fictional Northbridge material must remain explicitly labelled as scenario/simulation content. **No real-world ransomware or live forensic acquisition is needed.**
@@ -25,6 +25,15 @@ A single, auditable workspace for the **GRC105 Week 20 individual assessment**. 
 | `10-final-submission/` | Final consolidated DOCX only after approvals |
 | `tools/` | Repository validation scripts |
 
+## Current completion state
+
+- **Task 1:** Completed and committed at `506b89b`; approved Task 1 artifacts remain unchanged.
+- **Tasks 2–6:** Drafted, validated and awaiting final independent acceptance and a final Git checkpoint; no organisational approval or live operational execution is claimed.
+- **Final DOCX:** Not yet assembled. The required filename is `GRC105_IRP_Assignment_StudentID.docx`.
+- **Original training materials:** Preserved and verified unchanged.
+- **Editable diagrams:** Mermaid source files remain in the relevant task `diagrams/` directories.
+- **Rendered visuals:** SVG and PNG exports remain in the relevant task `visuals/` directories.
+
 ## Working rules
 
 1. Proceed **one task at a time**; review and approve each task before advancing.
@@ -48,4 +57,4 @@ git status
 python3 tools/check_project.py
 ```
 
-The downloaded ZIP includes a local Git repository in the working directory, but ZIP extraction may not preserve every Git metadata attribute in all clients. If required, run `git init` and make a first commit yourself. No GitHub remote or push is configured.
+The downloaded ZIP includes a local Git repository in the working directory. No GitHub remote or push is configured. This working copy must not be reinitialised or committed during the current review stage.

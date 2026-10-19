@@ -1,0 +1,22 @@
+%% Northbridge Task 3 — proposed response workflow; no action is represented as completed
+flowchart LR
+  classDef command fill:#173b5f,stroke:#f0b44d,color:#fff
+  classDef action fill:#0d2a46,stroke:#23b7b0,color:#fff
+  classDef decision fill:#4a3016,stroke:#f0b44d,color:#fff
+  classDef record fill:#e8f1f5,stroke:#8aa2b5,color:#102a43
+  classDef caution fill:#5b1f2a,stroke:#e07888,color:#fff
+  classDef legend fill:#edf4f7,stroke:#8aa2b5,color:#102a43
+
+  A["08:45 WAT\nIncident record\nHigh — provisional\nE01–E08"]:::command --> B["Preserve priority records\nEDR, identity, server, proxy, backup"]:::action
+  B --> C{"Active encryption,\npropagation or privileged exposure?"}:::decision
+  C -->|No / safe delay| D["Preserve before disruptive action\nDocument scope and uncertainty"]:::action
+  C -->|Yes / delay increases harm| E["IRL-authorised containment\nEmergency path only if normal approval unavailable"]:::caution
+  D --> F["FIN-PC07 / FS01 / identity / BAK01\nScoped containment and credential protection"]:::action
+  E --> F
+  F --> G["Scope investigation\nE01–E05 hypotheses; E06–E08 impact"]:::action
+  G --> H{"Recovery source validated\nand security gates passed?"}:::decision
+  H -->|No| I["Hold restoration\nContinue investigation or prepare alternative service"]:::caution
+  H -->|Yes| J["Phased recovery\nSecurity monitoring and business acceptance"]:::action
+  I --> K["Record decision, impact, evidence limits\nand next review"]:::record
+  J --> K
+  L["Legend\nSolid arrows = proposed sequence\nDecision diamond = decision/authority\nDashed path = urgent protective or hold path\nNo node claims completion"]:::legend

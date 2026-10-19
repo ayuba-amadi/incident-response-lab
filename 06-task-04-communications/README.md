@@ -1,5 +1,10 @@
 # Task 4 — Stakeholder communication
 
-**Status:** Not started. Only work approved for this task should go here.
+**Status:** Draft complete — awaiting independent review. Messages are fictional planning drafts; no notification is claimed as sent.
 
-Use `00-project-management/requirements-traceability.csv` for exact rubric requirements. Put editable diagrams in `visuals/`; place tables as CSV or Markdown and draft text as Markdown before approved compilation. Distinguish scenario facts, working hypotheses, and assumed decisions.
+Primary outputs:
+
+- [TASK-4-COMMUNICATION-PLAN.md](TASK-4-COMMUNICATION-PLAN.md)
+- [stakeholder-matrix.csv](stakeholder-matrix.csv)
+
+The plan includes eight stakeholder groups, verified-phone fallback, escalation rules, an executive briefing and a learner notice. Word counts are validated separately with Python's standard library.

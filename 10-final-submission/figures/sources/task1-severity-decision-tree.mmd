@@ -1,0 +1,32 @@
+%% Northbridge Skills Institute — Stage 2 severity decision tree
+%% Decision aid only; it does not replace evidence review or management authority.
+flowchart TD
+  classDef control fill:#163b5c,stroke:#f0b45b,color:#f4f8fb,stroke-width:2px;
+  classDef decision fill:#0b1f33,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef critical fill:#4a1f2a,stroke:#f07b8b,color:#fff4f6,stroke-width:2px;
+  classDef high fill:#3b2b16,stroke:#f0b45b,color:#fff7e6,stroke-width:2px;
+  classDef medium fill:#123b4a,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef low fill:#34495e,stroke:#b7c9d6,color:#f4f8fb,stroke-width:2px;
+  classDef note fill:#e8f1f5,stroke:#5b7285,color:#10202f,stroke-width:1px;
+
+  START["Assessment point<br/>08:45 WAT on Day 0"]:::control
+  INPUT["Use confirmed observations, scenario impact, scope, time-criticality, resource limits, and recoverability.<br/>Do not classify solely from a ransom note."]:::note
+  C1{"Confirmed severe institution-wide impact,<br/>broad data breach, or loss of viable recovery?"}:::decision
+  C2{"Material critical-service or multi-asset impact,<br/>active/suspected compromise, time-critical deadline,<br/>or significant recovery uncertainty?"}:::decision
+  C3{"Localized impact with essential operations continuing<br/>and a credible recovery path?"}:::decision
+  CRIT["CRITICAL<br/>Immediate full mobilisation<br/>Severe confirmed scope or consequence"]:::critical
+  HIGH["HIGH<br/>Rapid coordinated response<br/>Material impact or urgent uncertainty"]:::high
+  MED["MEDIUM<br/>Prompt proportionate response<br/>Bounded localized impact"]:::medium
+  LOW["LOW<br/>Routine handling<br/>No material CIA impact"]:::low
+  CURRENT["NORTHBRIDGE INITIAL POSITION<br/>HIGH — provisional<br/>E03/E04/E06/E07/E08 plus exam and backup context<br/>Broad breach, total recovery loss, and attacker identity not confirmed"]:::high
+  LEGEND["Legend<br/>Decision diamonds = criteria to validate<br/>Dotted marker = current provisional position<br/>Current position can change only with new evidence or validated impact"]:::note
+
+  START --> INPUT --> C1
+  C1 -->|Yes| CRIT
+  C1 -->|No| C2
+  C2 -->|Yes| HIGH
+  C2 -->|No| C3
+  C3 -->|Yes| MED
+  C3 -->|No| LOW
+  HIGH -.->|Current fit at 08:45| CURRENT
+  LEGEND -.-> CURRENT

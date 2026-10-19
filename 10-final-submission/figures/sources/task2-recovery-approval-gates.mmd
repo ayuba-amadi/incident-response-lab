@@ -1,0 +1,33 @@
+%% Northbridge Skills Institute — Task 2 Stage 2 recovery approval gates
+%% Proposed governance gates; no restoration or service return is claimed.
+flowchart LR
+  classDef technical fill:#163b5c,stroke:#f0b45b,color:#f4f8fb,stroke-width:2px;
+  classDef validation fill:#0b1f33,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef business fill:#123b4a,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef management fill:#3b2b16,stroke:#f0b45b,color:#fff7e6,stroke-width:2px;
+  classDef reject fill:#4a1f2a,stroke:#f07b8b,color:#fff4f6,stroke-width:2px;
+  classDef note fill:#e8f1f5,stroke:#5b7285,color:#10202f,stroke-width:1px;
+
+  START["Approved recovery proposal<br/>Scope, evidence, dependencies and<br/>backup trust conditions recorded"]:::technical
+  TECH["Technical restoration completion<br/>IT Operations executes approved work<br/>and records test result"]:::technical
+  SEC["Security validation<br/>Security Analyst assesses compromise,<br/>access and persistence risk"]:::validation
+  DATA["Data integrity verification<br/>Files, permissions, application state<br/>and recovery data checked"]:::validation
+  GATES{"Security and integrity<br/>gates satisfied?"}:::validation
+  BIZ["Business acceptance<br/>Business Service Owner confirms<br/>service and learner impact conditions"]:::business
+  MGMT{"High/Critical material risk<br/>or exception requiring management approval?"}:::management
+  APPROVE["Management approval<br/>Risk acceptance and continuity decision"]:::management
+  RETURN["Controlled return to service<br/>Monitor, document and review"]:::business
+  REJECT["Do not return<br/>Contain, investigate, remediate,<br/>or obtain further validation"]:::reject
+  LEGEND["Legend<br/>Solid border = technical work<br/>Double border = validation/business gates<br/>Decision diamond = management decision<br/>Dashed path = reject or investigate<br/>Technical restoration alone is not service acceptance"]:::note
+
+  START --> TECH
+  TECH --> SEC
+  TECH --> DATA
+  SEC --> GATES
+  DATA --> GATES
+  GATES -->|No| REJECT
+  GATES -->|Yes| BIZ
+  BIZ --> MGMT
+  MGMT -->|Yes| APPROVE --> RETURN
+  MGMT -->|No| RETURN
+  LEGEND -.-> GATES

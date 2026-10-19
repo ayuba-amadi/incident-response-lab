@@ -1,0 +1,24 @@
+%% Northbridge Task 3 — proposed recovery decision; no backup or restoration result is claimed
+flowchart LR
+  classDef work fill:#0d2a46,stroke:#23b7b0,color:#fff
+  classDef gate fill:#4a3016,stroke:#f0b44d,color:#fff
+  classDef reject fill:#5b1f2a,stroke:#e07888,color:#fff
+  classDef business fill:#173b5f,stroke:#f0b44d,color:#fff
+  classDef note fill:#e8f1f5,stroke:#8aa2b5,color:#102a43
+  classDef legend fill:#edf4f7,stroke:#8aa2b5,color:#102a43
+
+  A["Candidate recovery source\nprovenance and scope recorded"]:::work --> B["Isolated validation\nno production restore"]:::work
+  B --> C{"Backup or image\ntrust and recoverability established?"}:::gate
+  C -->|No| X["Reject or hold\nobtain further validation\nprepare continuity alternative"]:::reject
+  C -->|Yes| D["Technical restoration\nIT Operations executes approved scope"]:::work
+  D --> E{"Security validation\nand data integrity passed?"}:::gate
+  E -->|No| X
+  E -->|Yes| F["Business Service Owner\nconfirms learner/service readiness"]:::business
+  F --> G{"Material High/Critical\nrisk or exception remains?"}:::gate
+  G -->|Yes| H["Senior Management\nrisk acceptance / continuity decision"]:::business
+  G -->|No| I["Controlled return to service\nmonitor and document"]:::work
+  H -->|Approved| I
+  H -->|Not approved| X
+  X --> Y["Record rationale, evidence limitations,\nimpact and next review"]:::note
+  I --> Z["Post-return monitoring\nand closure/recovery review"]:::work
+  L["Legend\nGold = approval gate\nRed = hold/reject/further investigation\nTechnical restoration is not business acceptance"]:::legend

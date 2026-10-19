@@ -1,0 +1,24 @@
+%% Northbridge Skills Institute — Task 2 Stage 2 RACI accountability workflow
+%% Illustrative accountability path; the complete machine-readable RACI is in data/raci.csv.
+flowchart LR
+  classDef activity fill:#163b5c,stroke:#f0b45b,color:#f4f8fb,stroke-width:2px;
+  classDef responsible fill:#0b1f33,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef accountable fill:#3b2b16,stroke:#f0b45b,color:#fff7e6,stroke-width:2px;
+  classDef consulted fill:#123b4a,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef informed fill:#34495e,stroke:#b7c9d6,color:#f4f8fb,stroke-width:2px;
+  classDef record fill:#e8f1f5,stroke:#5b7285,color:#10202f,stroke-width:1px;
+
+  ACT["RACI activity<br/>Detection, containment,<br/>recovery or closure"]:::activity
+  RESP["Responsible<br/>Performs or coordinates<br/>the activity"]:::responsible
+  ACC["One Accountable role<br/>Owns the outcome or decision"]:::accountable
+  CONS["Consulted<br/>Provides evidence, technical,<br/>business or legal input"]:::consulted
+  INFO["Informed<br/>Receives relevant status<br/>or outcome"]:::informed
+  REC["Record<br/>Authority, evidence, scope,<br/>decision, status and review"]:::record
+  EMERG{"Emergency condition?"}:::accountable
+  EAUTH["Constrained emergency authority<br/>IT Operations Lead or formally delegated<br/>senior IT/security role; minimum action"]:::accountable
+  LEGEND["Legend<br/>Navy = activity/execution<br/>Gold = accountability or emergency decision<br/>Teal = consultation<br/>Gray = notification/recording<br/>Each CSV row has exactly one A"]:::record
+
+  ACT --> RESP --> ACC --> CONS --> INFO --> REC
+  ACC -.-> EMERG
+  EMERG -->|Yes and normal approval unavailable| EAUTH --> REC
+  LEGEND -.-> ACC

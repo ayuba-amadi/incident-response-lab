@@ -1,5 +1,15 @@
-# Final submission (not yet generated)
+# Final submission
 
-Submit a single file: `GRC105_IRP_Assignment_StudentID.docx` (replace `StudentID` with the actual ID).
+**Status:** Final DOCX assembled and validated for academic review; not submitted.
 
-Must include name, student ID, official email, word count, tasks 1–6 in order, references and required AI acknowledgement. Source spreadsheets and diagrams are working materials; embed finished visuals and registers in the Word document rather than submitting a repository instead of the required DOCX.
+**Document:** [GRC105_IRP_Assignment_2025-GCR-12684.docx](GRC105_IRP_Assignment_2025-GCR-12684.docx)
+
+The document contains the student metadata, Tasks 1–6 in order, the required word-count checks, references and AI-assistance acknowledgement. The report uses the canonical task registers and monochrome report figures. Editable report-specific figure sources are in [`figures/sources/`](figures/sources/), with SVG/PNG exports in [`figures/`](figures/).
+
+Rebuild locally with:
+
+```bash
+python3 tools/build_grc105_submission.py
+```
+
+The rendered PDF in [`qa/`](qa/) is a validation artifact only. The final DOCX has not been committed, pushed or submitted to E-Campus.
