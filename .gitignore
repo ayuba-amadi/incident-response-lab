@@ -1,0 +1,11 @@
+# Compiled scratch, local credentials and OS files
+.DS_Store
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+*.swp
+~$*.docx
+.cache/
+.temp/
