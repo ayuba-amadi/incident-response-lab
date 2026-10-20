@@ -51,12 +51,6 @@ officially approved organisational determination.
 | Document | Purpose |
 |---|---|
 | [Integrated Task 1 Assessment](TASK-1-INTEGRATED-ASSESSMENT.md) | Principal consolidated academic deliverable |
-| [Stage 1 Review](STAGE-1-REVIEW.md) | Historical evidence-assessment quality review |
-| [Stage 2 Review](STAGE-2-REVIEW.md) | Historical severity and impact quality review |
-
-The historical review files document development checkpoints.
-They should not be mistaken for an outstanding requirement
-to perform additional stages.
 
 ## Directory navigation
 

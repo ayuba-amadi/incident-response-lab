@@ -59,7 +59,6 @@ security-validation or restoration-approval requirements.
 | [RACI Matrix](raci.csv) | Activity responsibility and accountability assignments |
 | [RACI Methodology](csirt/raci-methodology-and-accountability.md) | Interpretation and accountability rules |
 | [Readiness Improvements](readiness/preparation-improvements.md) | Four proposed improvements and validation measures |
-| [Completion QA](TASK-2-COMPLETION-QA.md) | Documented assessment and validation results |
 
 ## Directory guide
 
@@ -91,19 +90,6 @@ See:
 - [Authority–RACI Crosswalk](data/authority-raci-crosswalk.csv)
 - [RACI Activity Matrix](raci.csv)
 - [Duty Conflict and Coverage Register](data/duty-conflict-and-coverage-register.csv)
-
-## Development documentation
-
-These documents preserve the historical production and review stages:
-
-- [Stage 1 Governance Draft](TASK-2-STAGE-1-GOVERNANCE-DRAFT.md)
-- [Stage 1 Review](STAGE-1-REVIEW.md)
-- [Stage 2 CSIRT and RACI Draft](TASK-2-STAGE-2-CSIRT-RACI-DRAFT.md)
-- [Stage 2 Review](STAGE-2-REVIEW.md)
-
-Statements about work being deferred within historical stage records
-must be understood in the context of those earlier stages.
-They do not mean that the completed assignment is still unfinished.
 
 ## Featured governance visuals
 
