@@ -1,66 +1,64 @@
-<<<<<<< HEAD
-# Final submission
+# GRC105 — Final Assessment Submission
 
-**Status:** Final DOCX assembled and validated for academic review; not submitted.
+**Incident Response Planning and Ransomware Response Simulation**  
+**Case scenario:** Northbridge Skills Institute
 
-**Document:** [GRC105_IRP_Assignment_2025-GCR-12684.docx](GRC105_IRP_Assignment_2025-GCR-12684.docx)
+## Submission documents
 
-The document contains the student metadata, Tasks 1–6 in order, the required word-count checks, references and AI-assistance acknowledgement. The report uses the canonical task registers and monochrome report figures. Editable report-specific figure sources are in [`figures/sources/`](figures/sources/), with SVG/PNG exports in [`figures/`](figures/).
+This directory provides the consolidated GRC105 assessment for academic examination. The report presents six linked tasks addressing the assessment, governance, containment, communication, exercise and review of a fictional ransomware incident.
 
-Rebuild locally with:
+| Format | Submission document | Intended use |
+|---|---|---|
+| **PDF** | [View the final assessment (PDF)](GRC105_IRP_Assignment_2025-GCR-12684.pdf) | Convenient reading and review of the formatted report |
+| **Word** | [Download the final assessment (DOCX)](GRC105_IRP_Assignment_2025-GCR-12684.docx) | Editable version of the consolidated submission |
 
-```bash
-python3 tools/build_grc105_submission.py
-```
+**Submission status:** The documents are available in this GitHub repository for review. Publication here does not establish that they have been submitted to, or accepted by, the institution's E-Campus platform.
 
-The rendered PDF in [`qa/`](qa/) is a validation artifact only. The final DOCX has not been committed, pushed or submitted to E-Campus.
-=======
-# GRC105 — Final Submission
+## Assessment coverage
 
-## Overview
+The consolidated report addresses all six GRC105 tasks in sequence. Each task has a dedicated directory containing the associated analysis and supporting materials.
 
-This directory contains the consolidated GRC105 Incident Response Planning and Ransomware Response Simulation assignment.
+| Task | Assessment component | Supporting documentation |
+|---|---|---|
+| **1** | Incident assessment: evidence E01–E08, chronology, provisional severity, CIA impact and investigation priorities | [Incident Assessment](../01-incident-assessment/) |
+| **2** | Incident response planning: governance, CSIRT responsibilities, decision authority, RACI and preparedness | [IR Plan and Governance](../02-ir-plan-and-governance/) |
+| **3** | Response playbook: planned actions, evidence handling, containment, investigation and recovery approval | [Response Playbook](../03-response-playbook/) |
+| **4** | Stakeholder communications: notification responsibilities, escalation, executive briefing and learner notice | [Communications](../04-communications/) |
+| **5** | Tabletop simulation: 60-minute exercise, scenario injects, simulated decisions and corrective actions | [Tabletop Simulation](../05-tabletop-simulation/) |
+| **6** | Healthcare ransomware case study: critical evaluation and application of lessons to Northbridge | [Case Study](../06-case-study/) |
 
-The assessment addresses the fictional Northbridge Skills Institute ransomware scenario across six completed tasks.
+## Scenario and scope
 
-## Authoritative document
+Northbridge Skills Institute is a **fictional institution** used for the GRC105 assessment. The scenario concerns disruption to learning-related systems, with particular attention to an examination scheduled for 11:00 WAT on Day 0.
 
-**[Final Word Assignment](GRC105_IRP_Assignment_2025-GCR-12684.docx)**
+The initial incident assessment records a **provisional High severity classification at 08:45 WAT**. The report maintains distinctions between supplied scenario observations, investigative hypotheses, proposed incident response procedures, and the outcomes of a simulated tabletop exercise.
 
-The DOCX is the primary academic deliverable. It contains the six tasks, references and AI-assistance acknowledgement.
+The material is an academic incident response assessment. It does **not** represent a live investigation, an implemented institutional response plan, completed forensic acquisition, confirmed data exfiltration, or operational recovery.
 
-GitHub publication does not constitute academic submission. An E-Campus submission has not been confirmed.
+## Supporting assessment materials
 
-## Assessment documentation
+The six task directories provide supporting documents such as structured evidence registers, decision and responsibility matrices, editable Mermaid diagram sources and rendered visualisations where applicable.
 
-| Task | Supporting directory |
+The following preparation materials are also retained for traceability:
+
+| Supporting file | Description |
 |---|---|
-| Incident assessment | [Task 1](../01-incident-assessment/) |
-| Governance and CSIRT | [Task 2](../02-ir-plan-and-governance/) |
-| Response playbook | [Task 3](../03-response-playbook/) |
-| Communications | [Task 4](../04-communications/) |
-| Tabletop simulation | [Task 5](../05-tabletop-simulation/) |
-| Healthcare case study | [Task 6](../06-case-study/) |
+| [Consolidated Markdown report](build/final-report.md) | Retained report preparation text |
+| [Reference preparation material](build/reference-template.md) | Supporting reference notes and template material |
+| [Build materials guide](build/README.md) | Description of the retained preparation files |
 
-## Supporting files
+These are **supporting records**, not alternative final submissions. For the assessed narrative, formatted tables, report figures, references and AI-assistance disclosure, consult the final PDF or DOCX above.
 
-- [Consolidated Markdown report](build/final-report.md)
-- [Reference preparation material](build/reference-template.md)
-- [Build documentation](build/)
+## Guidance for assessment review
 
-These files support report provenance and are not separate official submissions.
+Assessors may begin with the **PDF** for a continuous reading experience, using the DOCX where an editable version is needed. The task links above provide access to underlying registers, diagrams and additional explanatory documentation for verification or closer examination.
 
-## Document integrity
+The submission should be assessed on the basis of the report's stated evidence and simulation boundaries. Planned response activities and proposed corrective measures are not presented as actions performed on production systems.
 
-The replacement DOCX was verified as byte-for-byte identical to the corresponding document in the legacy final-submission directory.
+## Repository navigation
 
-The earlier report-generation scripts, rendered QA PDF and report-specific figures are not retained in this simplified directory. No automatic rebuild capability is claimed.
+[Return to the main GRC105 repository](../README.md)
 
-## Submission status
+---
 
-The report is prepared for academic submission. Check the DOCX formatting, student information, contents, references and pagination before uploading through the authorised institutional platform.
-
-## Navigation
-
-[Repository overview](../README.md)
->>>>>>> 1b859c41f2470d9828b2bf80ad9247d2a54e5d28
+*This README is an index to the completed assessment package. It does not amend the content of the submitted Word or PDF documents.*
