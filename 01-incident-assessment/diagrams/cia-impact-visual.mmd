@@ -1,0 +1,37 @@
+%% Northbridge Skills Institute — Stage 2 CIA impact visual
+%% Evidence references indicate observations or questions, not causal proof.
+flowchart TB
+  classDef property fill:#0b1f33,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef observed fill:#34495e,stroke:#b7c9d6,color:#f4f8fb,stroke-width:1.5px;
+  classDef potential fill:#3b2b16,stroke:#f0b45b,color:#fff7e6,stroke-width:1.5px,stroke-dasharray: 6 4;
+  classDef unknown fill:#4a1f2a,stroke:#f07b8b,color:#fff4f6,stroke-width:1.5px;
+  classDef legend fill:#e8f1f5,stroke:#5b7285,color:#10202f,stroke-width:1px;
+
+  subgraph C["CONFIDENTIALITY"]
+    C0["Potential material impact<br/>NOT ESTABLISHED"]:::property
+    C1["Observed: E02 unfamiliar sign-in<br/>E03 unusual admin logons<br/>E04 1.2 GB HTTPS upload"]:::observed
+    C2["Potential: mailbox, shared files,<br/>backup data, or institutional data access"]:::potential
+    C3["Unknown: upload content, destination ownership,<br/>MFA outcome, unauthorized reads"]:::unknown
+    C0 --> C1 --> C2 --> C3
+  end
+
+  subgraph I["INTEGRITY"]
+    I0["Observed material anomaly<br/>SCOPE AND CAUSE UNCONFIRMED"]:::property
+    I1["Observed: E06 mass file changes,<br/>.locked files, ransom note"]:::observed
+    I2["Potential: privileged tampering,<br/>altered LMS01 content, backup changes"]:::potential
+    I3["Unknown: malware family, execution path,<br/>full changed-file set, BAK01 state"]:::unknown
+    I0 --> I1 --> I2 --> I3
+  end
+
+  subgraph A["AVAILABILITY"]
+    A0["High observed impact<br/>EXAMINATION RISK"]:::property
+    A1["Observed: E06 FS01 file condition<br/>E07 learner functions unavailable<br/>E08 contact list inaccessible"]:::observed
+    A2["Potential: LMS01 dependency disruption,<br/>unsafe recovery, wider service loss"]:::potential
+    A3["Unknown: full FS01/LMS01 scope<br/>and safe examination continuity option"]:::unknown
+    A0 --> A1 --> A2 --> A3
+  end
+
+  LEGEND["Legend<br/>Blue-gray = recorded observation<br/>Amber dashed = potential impact or hypothesis<br/>Red = unknown consequence requiring validation<br/>No CIA stream proves disclosure, causation, or attacker identity"]:::legend
+  LEGEND -.-> C0
+  LEGEND -.-> I0
+  LEGEND -.-> A0

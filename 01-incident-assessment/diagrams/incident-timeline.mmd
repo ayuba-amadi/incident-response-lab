@@ -1,0 +1,34 @@
+%% Northbridge Skills Institute — Stage 1 evidence timeline
+%% Solid edges = recorded chronological sequence or control relationships; dashed edges = possible investigative relationships, not proven causation.
+flowchart LR
+  classDef evidence fill:#0b1f33,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef control fill:#163b5c,stroke:#f0b45b,color:#f4f8fb,stroke-width:2px;
+  classDef note fill:#e8f1f5,stroke:#5b7285,color:#10202f,stroke-width:1px;
+
+  subgraph DM1["DAY MINUS 1"]
+    E01["E01<br/>16:40 WAT<br/>Unexpected payroll attachment opened<br/>FIN-PC07"]:::evidence
+  end
+
+  subgraph D0["DAY 0 — MONDAY"]
+    E02["E02<br/>01:15 WAT<br/>M365 sign-in: unfamiliar IP + new device"]:::evidence
+    E03["E03<br/>01:35 WAT<br/>svc_backup remote admin logons<br/>FS01 + BAK01"]:::evidence
+    E04["E04<br/>01:50 WAT<br/>FIN-PC07 uploads 1.2 GB<br/>unfamiliar cloud storage"]:::evidence
+    E05["E05<br/>02:00 WAT<br/>Backup console reports<br/>FS01 + LMS01 jobs successful"]:::evidence
+    E06["E06<br/>08:30 WAT<br/>Mass file changes; .locked files<br/>+ ransom note"]:::evidence
+    E07["E07<br/>08:40 WAT<br/>LMS01 login loads; materials +<br/>assessment submission unavailable"]:::evidence
+    E08["E08<br/>08:45 WAT<br/>FS01 contact list inaccessible;<br/>phones available; email unverified"]:::evidence
+    RTA["RESPONSE CONTROL<br/>08:45 WAT<br/>Incident Response Lead assumes control"]:::control
+  end
+
+  E01 -. "possible sequence; verify" .-> E02
+  E02 -. "possible identity relationship; verify" .-> E03
+  E01 -. "possible endpoint relationship; verify" .-> E04
+  E03 -. "possible backup relationship; verify" .-> E05
+  E03 -. "possible privileged-access relationship; verify" .-> E06
+  E05 -. "reported recovery context only" .-> E06
+  E06 -. "possible FS01 dependency; verify" .-> E07
+  E06 -. "possible shared availability impact; verify" .-> E08
+  E08 --> RTA
+
+  LEGEND["Legend<br/>E01–E08 = supplied evidence<br/>Dashed arrows = possible relationship, not proven causality<br/>Gold = response control point"]:::note
+  LEGEND -.-> E01

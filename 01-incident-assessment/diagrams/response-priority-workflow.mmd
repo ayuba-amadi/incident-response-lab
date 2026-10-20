@@ -1,0 +1,35 @@
+%% Northbridge Skills Institute — Stage 2 response priority workflow
+%% High-level priorities only; detailed ordered actions belong to Task 3.
+flowchart LR
+  classDef start fill:#163b5c,stroke:#f0b45b,color:#f4f8fb,stroke-width:2px;
+  classDef immediate fill:#0b1f33,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef evidence fill:#34495e,stroke:#b7c9d6,color:#f4f8fb,stroke-width:1.5px;
+  classDef later fill:#123b4a,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef decision fill:#3b2b16,stroke:#f0b45b,color:#fff7e6,stroke-width:1.5px,stroke-dasharray: 6 4;
+  classDef legend fill:#e8f1f5,stroke:#5b7285,color:#10202f,stroke-width:1px;
+
+  START["08:45 WAT<br/>Incident Lead assumes control"]:::start
+
+  subgraph NOW["IMMEDIATE RESPONSE PRIORITIES"]
+    P0["P0<br/>Check life/safety or safeguarding impact<br/>None stated; keep under review"]:::decision
+    P1["P1<br/>Safe coordination channel<br/>E08; phones available; email unverified"]:::immediate
+    P2["P2<br/>Contain suspected active compromise<br/>E03/E04/E06/E07/E08"]:::immediate
+    P3["P3<br/>Preserve evidence and provenance<br/>E01–E08; do not claim collection"]:::evidence
+    P4["P4<br/>Protect identities and svc_backup<br/>E02/E03; preserve relevant records first"]:::immediate
+    P5["P5<br/>Scope hunt and protect sensitive data<br/>FIN-PC07, FS01, LMS01, BAK01, M365"]:::immediate
+  end
+
+  subgraph LATER["CONTINUITY AND RECOVERY READINESS"]
+    P6["P6<br/>Protect and validate backup options<br/>E03/E05; isolated validation"]:::later
+    P7["P7<br/>Examination continuity decision<br/>100 learners; 11:00 deadline; E07"]:::later
+    P8["P8<br/>Validated restoration readiness<br/>Integrity, monitoring, business approval"]:::later
+  end
+
+  LEGEND["Legend<br/>Solid path = priority sequence<br/>Amber dashed link = dependency or decision tradeoff<br/>This is not the Task 3 playbook and does not report completed actions"]:::legend
+
+  START --> P0 --> P1 --> P2 --> P3 --> P4 --> P5
+  P5 -.-> P6
+  P5 -.-> P7
+  P6 --> P8
+  P7 -.-> P8
+  LEGEND -.-> P1
