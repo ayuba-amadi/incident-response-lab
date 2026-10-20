@@ -1,0 +1,28 @@
+%% Northbridge Skills Institute — Task 2 Stage 2 staffing and escalation
+%% Proposed allocation of four known personnel; no completed escalation is shown.
+flowchart TD
+  classDef resource fill:#163b5c,stroke:#f0b45b,color:#f4f8fb,stroke-width:2px;
+  classDef decision fill:#0b1f33,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef action fill:#123b4a,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef escalate fill:#3b2b16,stroke:#f0b45b,color:#fff7e6,stroke-width:2px;
+  classDef external fill:#34495e,stroke:#b7c9d6,color:#f4f8fb,stroke-width:2px;
+  classDef note fill:#e8f1f5,stroke:#5b7285,color:#10202f,stroke-width:1px;
+
+  START["Known internal capacity<br/>IT Staff 1, IT Staff 2, IT Staff 3,<br/>Security Analyst 1"]:::resource
+  ALLOC["Proposed allocation<br/>IRL-01 command and record<br/>OPS-01 technical execution<br/>SEC-01 analysis<br/>FOR-01 proposed dual-hat evidence support"]:::action
+  CAP{"Can active threat, evidence,<br/>examination and recovery needs<br/>be covered without incompatible dual-hatting?"}:::decision
+  SEQ["Sequence work<br/>Preserve evidence, protect identities and BAK01,<br/>contain within scope, maintain decision logging"]:::action
+  DEPUTY["Assign deputy or alternate<br/>Record scope, duration, restrictions,<br/>review and revocation"]:::action
+  SUPPORT["Request additional support<br/>Forensics, malware, cloud identity,<br/>backup, legal/privacy or communications"]:::escalate
+  APPROVE{"Management approval,<br/>availability and confidentiality<br/>arrangements confirmed?"}:::decision
+  EXTERNAL["Contingent specialist support<br/>External provider contribution is proposed;<br/>engagement is not assumed"]:::external
+  DEFER["Record capacity limit<br/>Defer low-priority work; preserve active-threat,<br/>evidence, privileged-access, examination and recovery priorities"]:::note
+  LEGEND["Legend<br/>Gold = escalation or approval<br/>Teal = proposed allocation or action<br/>Gray = contingent support<br/>No node represents a completed action"]:::note
+
+  START --> ALLOC --> CAP
+  CAP -->|Yes| SEQ --> DEPUTY
+  CAP -->|No| SUPPORT --> APPROVE
+  APPROVE -->|Yes| EXTERNAL --> SEQ
+  APPROVE -->|No or unavailable| DEFER
+  DEPUTY -.-> SUPPORT
+  LEGEND -.-> CAP

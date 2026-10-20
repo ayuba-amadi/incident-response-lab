@@ -1,0 +1,40 @@
+%% Northbridge Skills Institute — Task 2 Stage 2 CSIRT organisation
+%% Proposed functional structure; no appointment or external engagement is claimed.
+flowchart TB
+  classDef authority fill:#3b2b16,stroke:#f0b45b,color:#fff7e6,stroke-width:2px;
+  classDef command fill:#163b5c,stroke:#f0b45b,color:#f4f8fb,stroke-width:2px;
+  classDef core fill:#0b1f33,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef support fill:#123b4a,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef external fill:#34495e,stroke:#b7c9d6,color:#f4f8fb,stroke-width:2px;
+  classDef note fill:#e8f1f5,stroke:#5b7285,color:#10202f,stroke-width:1px;
+
+  MGT["Senior Management / Executive Sponsor<br/>Material risk, Critical decisions,<br/>formal appointments and resources"]:::authority
+  IRL["IRL-01 Incident Response Lead<br/>Incident command, declaration,<br/>normal containment and escalation"]:::command
+  SEC["SEC-01 Security Analyst<br/>Investigation coordination,<br/>analysis and security validation"]:::core
+  FOR["FOR-01 Digital Forensics /<br/>Evidence Custodian<br/>Preservation and provenance"]:::core
+  OPS["OPS-01 IT Operations /<br/>Recovery Lead<br/>Approved technical execution"]:::core
+  LP["LP-01 Legal / Privacy Adviser<br/>Advisory reporting and disclosure input"]:::core
+  COM["COM-01 Communications Coordinator<br/>Fact-bounded preparation and coordination"]:::core
+  BCC["BCC-01 Business Continuity Coordinator<br/>Authorised continuity coordination"]:::support
+  BSO["BSO-01 Academic / Business Service Owner<br/>Examination and business acceptance"]:::support
+  EXT["Contingent external interfaces<br/>M365 identity, backup recovery,<br/>forensics, malware, legal or communications support<br/>Management approval required; not engaged by this diagram"]:::external
+  LEGEND["Legend<br/>Solid = command or accountable governance relationship<br/>Dotted = consultation or coordination<br/>Gray = contingent external support<br/>All roles and appointments are proposed unless scenario-established"]:::note
+
+  MGT --> IRL
+  IRL --> SEC
+  IRL --> FOR
+  IRL --> OPS
+  IRL -.-> LP
+  IRL -.-> COM
+  IRL -.-> BCC
+  IRL -.-> BSO
+  SEC -.-> FOR
+  SEC -.-> OPS
+  OPS -.-> BSO
+  BCC -.-> BSO
+  MGT -.-> LP
+  MGT -.-> COM
+  IRL -.-> EXT
+  OPS -.-> EXT
+  SEC -.-> EXT
+  LEGEND -.-> IRL

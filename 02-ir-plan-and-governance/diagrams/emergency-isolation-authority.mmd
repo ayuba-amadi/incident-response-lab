@@ -1,0 +1,31 @@
+%% Northbridge Skills Institute — Task 2 Stage 1 emergency isolation authority
+%% Governance-level procedure only; no technical commands or completed action are shown.
+flowchart TD
+  classDef start fill:#163b5c,stroke:#f0b45b,color:#f4f8fb,stroke-width:2px;
+  classDef decision fill:#0b1f33,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef normal fill:#123b4a,stroke:#4cc9c0,color:#f4f8fb,stroke-width:2px;
+  classDef emergency fill:#4a1f2a,stroke:#f07b8b,color:#fff4f6,stroke-width:2px;
+  classDef record fill:#34495e,stroke:#b7c9d6,color:#f4f8fb,stroke-width:2px;
+  classDef note fill:#e8f1f5,stroke:#5b7285,color:#10202f,stroke-width:1px;
+
+  START["Potential active threat or continuing damage<br/>FIN-PC07, FS01, LMS01, BAK01,<br/>identity, or privileged account"]:::start
+  ACTIVE{"Could delay increase propagation,<br/>integrity, confidentiality, or availability harm?"}:::decision
+  WAIT["Continue validation and monitoring<br/>Document why immediate isolation is not required"]:::record
+  IMPACT["Assess impact before action<br/>LMS01/FS01 dependency; examination;<br/>communications; backup and evidence effects"]:::decision
+  AUTH{"Normal decision authority available?"}:::decision
+  NORMAL["Normal containment approval<br/>Incident Response Lead<br/>Consult IT Operations, Security Analysis,<br/>and Business Service Owner where relevant"]:::normal
+  EMERG["Emergency containment authority<br/>IT Operations Lead or formally delegated senior IT/security role<br/>only if the Incident Response Lead cannot be reached promptly<br/>and delay may materially worsen harm"]:::emergency
+  EXEC["Authorised technical execution<br/>Assigned IT operator or Security Analyst<br/>performs only the approved scope"]:::normal
+  RECORD["Document decision<br/>Owner, authority, WAT time, evidence,<br/>scope, tradeoff, status, review point"]:::record
+  NOTIFY["Notify and review<br/>Incident Response Lead or deputy, management,<br/>service owner, BCC, privacy/legal as appropriate"]:::record
+  REASSESS["Reassess before extension, reversal,<br/>service return, or closure"]:::record
+  LEGEND["Legend<br/>Gold = entry; teal = decision/normal path<br/>Red = constrained emergency authority<br/>Blue-gray = record/review control<br/>No node represents a completed action"]:::note
+
+  START --> ACTIVE
+  ACTIVE -->|No| WAIT
+  ACTIVE -->|Yes| IMPACT --> AUTH
+  AUTH -->|Yes| NORMAL --> EXEC
+  AUTH -->|No; delay may worsen harm| EMERG --> EXEC
+  EXEC --> RECORD --> NOTIFY --> REASSESS
+  REASSESS -.-> IMPACT
+  LEGEND -.-> AUTH
